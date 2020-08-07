@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
- Route::get('/Evaluaciones','controlador@index_Evaluaciones');
+// Route::get('/prueba','controlador@index');

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 class GithController extends Controller
 {
     /**
@@ -13,7 +14,15 @@ class GithController extends Controller
      */
     public function putUrl()
     {
-        
+
+        $process = new Process('sh /script.sh');
+        $process->run();
+
+        // executes after the command finishes
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
+
     }
 
     /**
